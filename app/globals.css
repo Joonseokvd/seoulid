@@ -4,8 +4,8 @@
 :root {
   --paper: #ffffff;
   --ink: #121212;
-  --small: 13pt;
-  --large: 13pt;
+  --small: 11pt;
+  --large: 11pt;
   --line-height: 1.52;
   --outer-margin: clamp(34px, 6.4vw, 124px);
   --inner-margin: clamp(36px, 4.6vw, 88px);
@@ -34,7 +34,7 @@ body {
   color: var(--ink);
   background: var(--paper);
   font-family: "Pretendard", Arial, sans-serif;
-  font-size: 13pt;
+  font-size: 11pt;
   font-weight: 400;
   line-height: var(--line-height);
   text-rendering: optimizeLegibility;
@@ -508,13 +508,13 @@ a.catalog-item {
 
 .editorial-headline {
   max-width: 32ch;
-  font-size: 13pt;
+  font-size: 11pt;
   font-weight: 500;
   line-height: 1.12;
 }
 
 .editorial-index {
-  font-size: 13pt;
+  font-size: 11pt;
   font-weight: 700;
   line-height: 1;
 }
@@ -524,7 +524,7 @@ a.catalog-item {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(16px, 1.8vw, 30px);
   margin-bottom: 2.6vh;
-  font-size: 13pt;
+  font-size: 11pt;
   line-height: 1.22;
 }
 
@@ -564,7 +564,7 @@ a.catalog-item {
   gap: 2.8rem;
   writing-mode: vertical-rl;
   transform: rotate(180deg);
-  font-size: 13pt;
+  font-size: 11pt;
   line-height: 1;
   white-space: nowrap;
 }
@@ -612,10 +612,177 @@ a.catalog-item {
   transform: translateX(-50%);
 }
 
+/* ChronoLoop project book */
+.project-intro-spread,
+.process-spread,
+.photo-spread {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.project-title-page,
+.project-overview-page,
+.process-page,
+.photo-page {
+  height: 100svh;
+  min-height: 100svh;
+  font-size: 11pt;
+}
+
+.project-title-page,
+.process-spread > :first-child,
+.photo-spread > :first-child {
+  padding: 3.5vh var(--inner-margin) 2.2vh
+    clamp(18px, 2.2vw, 38px);
+}
+
+.project-overview-page,
+.process-spread > :last-child,
+.photo-spread > :last-child {
+  padding: 3.5vh clamp(18px, 2.2vw, 38px) 2.2vh
+    var(--inner-margin);
+}
+
+.project-title-page {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+}
+
+.project-display-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 11pt;
+  font-weight: 700;
+  line-height: 0.78;
+  letter-spacing: -0.065em;
+}
+
+.project-spec-table {
+  width: 100%;
+  align-self: end;
+  margin-bottom: 2.8vh;
+  border-top: 1px solid var(--ink);
+  font-size: 11pt;
+  line-height: 1.12;
+}
+
+.project-spec-table div {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 1rem;
+  padding: 0.22em 0;
+  border-bottom: 1px solid rgba(18, 18, 18, 0.22);
+}
+
+.project-spec-table dt {
+  font-weight: 700;
+}
+
+.project-overview-page {
+  display: grid;
+  grid-template-rows: minmax(0, 42%) minmax(0, 1fr) auto;
+}
+
+.overview-copy-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-content: start;
+  gap: clamp(12px, 1.3vw, 24px);
+  font-size: 11pt;
+  line-height: 1.12;
+}
+
+.overview-hero,
+.photo-page figure {
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  background: #f2f2f2;
+}
+
+.overview-hero img,
+.photo-page img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.process-page {
+  display: grid;
+  grid-template-rows: minmax(0, 47%) minmax(0, 1fr) auto;
+}
+
+.process-copy-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-content: start;
+  gap: clamp(16px, 1.8vw, 30px);
+  font-size: 11pt;
+  line-height: 1.12;
+}
+
+.process-copy-grid h2 {
+  margin-bottom: 0.5em;
+  font-size: 11pt;
+  font-weight: 700;
+}
+
+.process-copy-grid p + p {
+  margin-top: 1em;
+}
+
+.process-image-grid {
+  min-width: 0;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(8px, 0.8vw, 14px);
+}
+
+.process-image-grid figure {
+  min-width: 0;
+  min-height: 0;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 0.35em;
+}
+
+.process-image-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.process-image-grid figcaption {
+  font-size: 11pt;
+  line-height: 1;
+}
+
+.photo-page {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+}
+
+.project-folio {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 1rem;
+  padding-top: 1.1vh;
+  font-size: 11pt;
+  line-height: 1;
+}
+
+.project-folio span:nth-child(2) {
+  text-align: center;
+}
+
 @media (max-width: 900px) {
   :root {
-    --small: 13pt;
-    --large: 13pt;
+    --small: 11pt;
+    --large: 11pt;
     --outer-margin: 15vw;
     --inner-margin: 15vw;
   }
@@ -730,6 +897,59 @@ a.catalog-item {
 
   .editorial-rail {
     gap: 2rem;
+  }
+
+  .project-intro-spread,
+  .process-spread,
+  .photo-spread {
+    scroll-snap-align: none;
+    scroll-snap-stop: normal;
+  }
+
+  .project-title-page,
+  .project-overview-page,
+  .process-page,
+  .photo-page,
+  .project-title-page,
+  .process-spread > :first-child,
+  .photo-spread > :first-child,
+  .project-overview-page,
+  .process-spread > :last-child,
+  .photo-spread > :last-child {
+    width: 100%;
+    min-height: 100svh;
+    padding: 4vh 8vw 3vh;
+  }
+
+  .project-overview-page {
+    min-height: 130svh;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+  }
+
+  .overview-copy-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 3vh;
+  }
+
+  .process-page {
+    min-height: 130svh;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+  }
+
+  .process-copy-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    margin-bottom: 3vh;
+  }
+
+  .process-image-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .photo-page {
+    height: 100svh;
+    min-height: 100svh;
   }
 
   .folio-ui {

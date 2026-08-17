@@ -2,7 +2,7 @@
 import type { CSSProperties } from "react";
 
 const products = [
-  { number: 1, title: "Chronoloop", pages: "04–05" },
+  { number: 1, title: "ChronoLoop", pages: "04–05" },
   { number: 2, title: "Object 02", pages: "06–07" },
   { number: 3, title: "Object 03", pages: "08–09" },
   { number: 4, title: "Object 04", pages: "10–11" },
@@ -46,7 +46,7 @@ function Product({ product }: { product: ProductData }) {
       <a
         className={`catalog-item product-${number}`}
         href="/1"
-        aria-label="Chronoloop 상세 페이지"
+        aria-label="ChronoLoop 상세 페이지"
       >
         {visual}
       </a>
