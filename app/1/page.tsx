@@ -1,16 +1,5 @@
 /* eslint-disable @next/next/no-img-element, @next/next/no-html-link-for-pages */
 
-const projectSpecs = [
-  ["Project", "ChronoLoop"],
-  ["Industrial Design", "Ryu haechan"],
-  ["Publish", "Drei Stack"],
-  ["Edition", "100"],
-  ["Edit & Book Design", "Han joonseok"],
-  ["Web Design", "Han joonseok"],
-  ["Archive", "Seoul id"],
-  ["Year", "2026"],
-];
-
 function PageFolio({ page, caption }: { page: string; caption: string }) {
   return (
     <footer className="project-folio">
@@ -86,53 +75,75 @@ export default function ChronoloopPage() {
           className="spread spread-detail project-intro-spread"
           aria-label="ChronoLoop 소개 펼침면"
         >
-          <article className="book-page book-page-left project-title-page">
-            <h1 className="project-display-title">
-              <span>Chrono</span>
-              <span>Loop</span>
-            </h1>
-
-            <dl className="project-spec-table">
-              {projectSpecs.map(([term, description]) => (
-                <div key={term}>
-                  <dt>{term}</dt>
-                  <dd>{description}</dd>
-                </div>
-              ))}
-            </dl>
-
-            <PageFolio page="04" caption="ChronoLoop" />
-          </article>
-
-          <article className="book-page book-page-right project-overview-page">
-            <div className="overview-copy-grid">
-              <p>
-                시간은 이제 대부분 화면 속 숫자로 확인된다. 스마트폰을 켜거나
-                컴퓨터 화면 구석의 시계를 보면 된다. 그래서 요즘에는 시간을
-                본다기보다 그저 확인한다는 표현이 더 자연스럽다.
-              </p>
-              <p>
-                하지만 오래된 시계를 보고 있으면 시간은 조금 다르게 느껴진다.
-                초침이 움직이고, 톱니가 맞물려 돌아가고, 다이얼 위의 숫자가
-                천천히 다음 순간으로 넘어간다. 그 과정을 보고 있으면 시간은
-                단순한 숫자보다 하나의 흐름에 가깝게 느껴진다.
-              </p>
-              <p>
-                ChronoLoop는 그런 감각에서 출발한 시계다. 이 시계는 일반적인
-                두 개의 바늘 대신 여러 개의 원형 다이얼이 회전하며 시간을
-                표시한다. 구조적으로는 오래된 영구 달력 장치를 떠올리게 하는
-                면이 있다.
-              </p>
-            </div>
-
-            <figure className="overview-hero">
+          <article className="book-page book-page-left project-plate-page">
+            <figure className="intro-plate-image">
               <img
                 src="/detail/chronoloop/1.webp"
                 alt="실내 공간에 놓인 ChronoLoop"
               />
             </figure>
 
-            <PageFolio page="05" caption="ChronoLoop / Overview" />
+            <div className="intro-plate-lower">
+              <p>
+                ChronoLoop, 2026. Industrial Design: Ryu haechan. Publish: Drei
+                Stack. Edition 100. Edit &amp; Book Design and Web Design: Han
+                joonseok. Archive: Seoul id.
+              </p>
+            </div>
+
+            <PageFolio page="04" caption="ChronoLoop / Object study" />
+          </article>
+
+          <article className="book-page book-page-right project-essay-page">
+            <div className="intro-essay-grid">
+              <header className="intro-essay-meta">
+                <p className="intro-essay-number">05</p>
+                <h1>ChronoLoop</h1>
+                <p>
+                  A clock by
+                  <br />
+                  Ryu haechan
+                </p>
+                <p>
+                  Industrial Design
+                  <br />
+                  Seoul, 2026
+                </p>
+              </header>
+
+              <div className="intro-essay-copy">
+                <div className="intro-essay-opening">
+                  <p>
+                    시간은 이제 대부분 화면 속 숫자로 확인된다. 스마트폰을
+                    켜거나 컴퓨터 화면 구석의 시계를 보면 된다. 그래서
+                    요즘에는 시간을 본다기보다 그저 확인한다는 표현이 더
+                    자연스럽다.
+                  </p>
+                  <p>
+                    하지만 오래된 시계를 보고 있으면 시간은 조금 다르게
+                    느껴진다. 초침이 움직이고, 톱니가 맞물려 돌아가고, 다이얼
+                    위의 숫자가 천천히 다음 순간으로 넘어간다. 그 과정을 보고
+                    있으면 시간은 단순한 숫자보다 하나의 흐름에 가깝게
+                    느껴진다.
+                  </p>
+                </div>
+
+                <div className="intro-essay-continuation">
+                  <p>
+                    ChronoLoop는 그런 감각에서 출발한 시계다. 이 시계는
+                    일반적인 두 개의 바늘 대신 여러 개의 원형 다이얼이
+                    회전하며 시간을 표시한다. 구조적으로는 오래된 영구 달력
+                    장치를 떠올리게 하는 면이 있다.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <p className="intro-essay-note">
+              ChronoLoop — time observed through a rotating dial system.
+            </p>
+
+            <PageFolio page="05" caption="ChronoLoop / Introduction" />
           </article>
         </section>
 
