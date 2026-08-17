@@ -216,9 +216,12 @@ img {
 
 .catalog-item {
   position: absolute;
+  left: var(--visual-x);
+  top: var(--visual-y);
   z-index: 1;
   display: block;
   width: var(--item-width);
+  transform: translate(var(--anchor-x, -50%), var(--anchor-y, -50%));
   cursor: default;
 }
 
@@ -305,83 +308,120 @@ a.catalog-item {
   outline-offset: 5px;
 }
 
-/* Manual optical layout: 3 / 2 / 3 / 2 objects. */
+/*
+ * Optical layout: 3 / 2 / 3 / 2 objects.
+ * Positions are pinned to each cutout's alpha-weighted visual centre rather
+ * than to the rectangular PNG canvas. Widths balance visible object area.
+ */
 .product-1 {
-  left: 16%;
-  top: 6.5%;
+  --visual-x: 17%;
+  --visual-y: 14.8%;
   --item-width: 11.5%;
+  --anchor-x: -49.1%;
+  --anchor-y: -56.2%;
   --number-left: -0.25em;
+  --label-x: 49.1%;
+  --label-y: 56.2%;
   --label-width: 92%;
 }
 
 .product-2 {
-  left: 39%;
-  top: 10%;
-  --item-width: 25%;
+  --visual-x: 49%;
+  --visual-y: 14.5%;
+  --item-width: 29%;
+  --anchor-x: -37.6%;
+  --anchor-y: -57.9%;
   --number-left: 2%;
-  --label-y: 52%;
+  --label-x: 37.6%;
+  --label-y: 57.9%;
   --label-width: 70%;
 }
 
 .product-3 {
-  left: 71%;
-  top: 8.5%;
-  --item-width: 22%;
+  --visual-x: 83%;
+  --visual-y: 14.5%;
+  --item-width: 20.5%;
+  --anchor-x: -50%;
+  --anchor-y: -49.9%;
+  --label-x: 50%;
+  --label-y: 49.9%;
   --label-width: 72%;
 }
 
 .product-4 {
-  left: 18%;
-  top: 29%;
-  --item-width: 13.5%;
+  --visual-x: 25%;
+  --visual-y: 39.2%;
+  --item-width: 12.8%;
+  --anchor-x: -49.9%;
+  --anchor-y: -49.5%;
+  --label-x: 49.9%;
+  --label-y: 49.5%;
   --label-width: 84%;
 }
 
 .product-5 {
-  left: 57%;
-  top: 27.5%;
-  --item-width: 20%;
-  --label-x: 58%;
-  --label-y: 34%;
+  --visual-x: 72%;
+  --visual-y: 39%;
+  --item-width: 16.5%;
+  --anchor-x: -53.8%;
+  --anchor-y: -36.3%;
+  --label-x: 53.8%;
+  --label-y: 36.3%;
   --label-width: 62%;
 }
 
 .product-6 {
-  left: 13%;
-  top: 50.5%;
-  --item-width: 10.5%;
-  --label-y: 30%;
+  --visual-x: 15%;
+  --visual-y: 65%;
+  --item-width: 13.4%;
+  --anchor-x: -51%;
+  --anchor-y: -41.4%;
+  --label-x: 51%;
+  --label-y: 41.4%;
   --label-width: 92%;
 }
 
 .product-7 {
-  left: 39%;
-  top: 50%;
-  --item-width: 18%;
-  --label-y: 43%;
+  --visual-x: 49%;
+  --visual-y: 65%;
+  --item-width: 19.5%;
+  --anchor-x: -49.8%;
+  --anchor-y: -45.5%;
+  --label-x: 49.8%;
+  --label-y: 45.5%;
   --label-width: 72%;
 }
 
 .product-8 {
-  left: 72%;
-  top: 49.5%;
-  --item-width: 18%;
-  --label-y: 38%;
+  --visual-x: 83%;
+  --visual-y: 65%;
+  --item-width: 15.3%;
+  --anchor-x: -49.9%;
+  --anchor-y: -47.5%;
+  --label-x: 49.9%;
+  --label-y: 47.5%;
   --label-width: 68%;
 }
 
 .product-9 {
-  left: 23%;
-  top: 72.5%;
-  --item-width: 19%;
-  --label-y: 37%;
+  --visual-x: 31%;
+  --visual-y: 86%;
+  --item-width: 16%;
+  --anchor-x: -49.6%;
+  --anchor-y: -46.5%;
+  --label-x: 49.6%;
+  --label-y: 46.5%;
   --label-width: 68%;
 }
 
 .product-10 {
-  left: 61%;
-  top: 71.5%;
-  --item-width: 22%;
+  --visual-x: 71%;
+  --visual-y: 86%;
+  --item-width: 16%;
+  --anchor-x: -50%;
+  --anchor-y: -47.3%;
+  --label-x: 50%;
+  --label-y: 47.3%;
   --label-width: 66%;
 }
 
@@ -537,16 +577,16 @@ a.catalog-item {
     height: 142svh;
   }
 
-  .product-1 { left: 19%; top: 5%; --item-width: 20%; }
-  .product-2 { left: 52%; top: 8%; --item-width: 40%; }
-  .product-3 { left: 8%; top: 25%; --item-width: 40%; }
-  .product-4 { left: 66%; top: 24%; --item-width: 23%; }
-  .product-5 { left: 14%; top: 44%; --item-width: 29%; }
-  .product-6 { left: 68%; top: 43%; --item-width: 19%; }
-  .product-7 { left: 10%; top: 64%; --item-width: 34%; }
-  .product-8 { left: 59%; top: 64%; --item-width: 33%; }
-  .product-9 { left: 14%; top: 83%; --item-width: 34%; }
-  .product-10 { left: 59%; top: 82%; --item-width: 36%; }
+  .product-1 { --visual-x: 25%; --visual-y: 9%; --item-width: 18%; }
+  .product-2 { --visual-x: 70%; --visual-y: 9%; --item-width: 44%; }
+  .product-3 { --visual-x: 28%; --visual-y: 28%; --item-width: 31%; }
+  .product-4 { --visual-x: 74%; --visual-y: 28%; --item-width: 20%; }
+  .product-5 { --visual-x: 28%; --visual-y: 47%; --item-width: 25%; }
+  .product-6 { --visual-x: 75%; --visual-y: 47%; --item-width: 21%; }
+  .product-7 { --visual-x: 28%; --visual-y: 66%; --item-width: 30%; }
+  .product-8 { --visual-x: 74%; --visual-y: 66%; --item-width: 24%; }
+  .product-9 { --visual-x: 27%; --visual-y: 85%; --item-width: 25%; }
+  .product-10 { --visual-x: 73%; --visual-y: 85%; --item-width: 25%; }
 
   .detail-shell,
   .spread-detail {
