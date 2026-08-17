@@ -1,14 +1,40 @@
 /* eslint-disable @next/next/no-img-element */
-const products = [8, 9, 6, 3, 1, 5, 7, 2, 4, 10];
+import type { CSSProperties } from "react";
 
-function Product({ number }: { number: number }) {
+const products = [
+  { number: 1, title: "Chronoloop", pages: "04–05" },
+  { number: 2, title: "Object 02", pages: "06–07" },
+  { number: 3, title: "Object 03", pages: "08–09" },
+  { number: 4, title: "Object 04", pages: "10–11" },
+  { number: 5, title: "Object 05", pages: "12–13" },
+  { number: 6, title: "Object 06", pages: "14–15" },
+  { number: 7, title: "Object 07", pages: "16–17" },
+  { number: 8, title: "Object 08", pages: "18–19" },
+  { number: 9, title: "Object 09", pages: "20–21" },
+  { number: 10, title: "Object 10", pages: "22–23" },
+];
+
+type ProductData = (typeof products)[number];
+
+function Product({ product }: { product: ProductData }) {
+  const { number, title, pages } = product;
+  const maskStyle = {
+    WebkitMaskImage: `url(/images/catalog/${number}.png)`,
+    maskImage: `url(/images/catalog/${number}.png)`,
+  } as CSSProperties;
+
   const visual = (
     <>
       <img
         className="product-photo"
-        src={`/images/${number}.png`}
+        src={`/images/catalog/${number}.png`}
         alt={`Seoul id product ${number}`}
       />
+      <span className="product-hover-fill" style={maskStyle} aria-hidden="true" />
+      <span className="product-hover-meta" aria-hidden="true">
+        <span className="product-hover-title">{title}</span>
+        <span className="product-hover-pages">{pages}</span>
+      </span>
       <span className="item-number" aria-hidden="true">
         {number}
       </span>
@@ -89,8 +115,8 @@ export default function Home() {
 
         <section className="book-page book-page-right" aria-label="제품 목차">
           <div className="catalog-constellation" aria-label="제품 목록">
-            {products.map((number) => (
-              <Product key={number} number={number} />
+            {products.map((product) => (
+              <Product key={product.number} product={product} />
             ))}
           </div>
         </section>
