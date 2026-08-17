@@ -10,38 +10,113 @@ function PageFolio({ page, caption }: { page: string; caption: string }) {
   );
 }
 
-function ProcessPage({
-  page,
-  columns,
-  images,
-}: {
-  page: string;
-  columns: Array<{ heading: string; body: string[] }>;
-  images: Array<{ src: string; alt: string; caption: string }>;
-}) {
-  return (
-    <article className="book-page process-page">
-      <div className="process-copy-grid">
-        {columns.map((column) => (
-          <section key={column.heading}>
-            <h2>{column.heading}</h2>
-            {column.body.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-          </section>
-        ))}
-      </div>
+const processImages = [
+  {
+    src: "/detail/chronoloop/2.webp",
+    alt: "흰 배경 위의 ChronoLoop",
+    caption: "Object view — opened body and rotating dial",
+  },
+  {
+    src: "/detail/chronoloop/3.webp",
+    alt: "선반 앞에 놓인 ChronoLoop",
+    caption: "Object in context — domestic scale and surrounding objects",
+  },
+  {
+    src: "/detail/chronoloop/4.webp",
+    alt: "ChronoLoop 주변 수납 구조의 세부 모습",
+    caption: "Detail view — form, storage and supporting structure",
+  },
+  {
+    src: "/detail/chronoloop/5.webp",
+    alt: "세탁기와 이동식 구조물 옆의 ChronoLoop",
+    caption: "Use and scale — ChronoLoop within a domestic system",
+  },
+];
 
-      <div className="process-image-grid">
-        {images.map((image) => (
+function ProcessImagePage() {
+  return (
+    <article className="book-page book-page-left process-image-page">
+      <div className="process-image-index">
+        {processImages.map((image, index) => (
           <figure key={image.src}>
             <img src={image.src} alt={image.alt} />
-            <figcaption>{image.caption}</figcaption>
+            <figcaption>
+              {String(index + 1).padStart(2, "0")} / {image.caption}
+            </figcaption>
           </figure>
         ))}
       </div>
 
-      <PageFolio page={page} caption="ChronoLoop / Process" />
+      <PageFolio page="06" caption="ChronoLoop / Image index" />
+    </article>
+  );
+}
+
+function ProcessTextPage() {
+  return (
+    <article className="book-page book-page-right process-text-page">
+      <section className="process-text-block process-text-block-top">
+        <div className="process-text-main">
+          <h2>시간을 읽는 방식</h2>
+          <p>
+            이 방식은 시간을 읽는 경험도 조금 다르게 만든다. 숫자를 빠르게
+            확인하는 대신, 원형 다이얼의 움직임을 통해 시간의 흐름을 인식하게
+            된다. 서로 다른 속도로 회전하는 작은 원들이 하나의 시점을 만들어
+            내는 방식이 이 시계의 핵심이다.
+          </p>
+          <h2>형태와 타이포그래피</h2>
+          <p>
+            형태 역시 이러한 메커니즘을 중심으로 정리했다. 금속 바디는
+            장식적인 요소를 최소화했고, 다이얼 위 숫자에는 블랙레터 스타일의
+            타이포그래피를 적용했다. 전통적인 문자 형태와 기계적인 구조가
+            결합되면서 차분하고 고전적인 분위기를 만든다.
+          </p>
+        </div>
+        <aside>
+          01 / ChronoLoop
+          <br />
+          Rotating dial system
+          <br />
+          Ryu haechan, 2026
+        </aside>
+      </section>
+
+      <div className="process-text-divider" aria-hidden="true">
+        <span>06</span>
+        <span>ChronoLoop / Process</span>
+        <span>07</span>
+      </div>
+
+      <section className="process-text-block process-text-block-bottom">
+        <div className="process-text-main">
+          <h2>관찰의 순간</h2>
+          <p>
+            이 시계의 흥미로운 점은 시간을 바라보는 태도를 조금 바꾼다는 데
+            있다. 디지털 시계가 정확하고 즉각적인 정보를 제공한다면,
+            ChronoLoop는 시간을 읽는 과정에 짧은 관찰의 순간을 만든다.
+            다이얼이 회전하고 숫자가 자리를 바꾸는 모습을 잠깐 바라보게 되는
+            것이다.
+          </p>
+          <h2>움직임으로서의 시간</h2>
+          <p>
+            우리는 늘 시간이 흐르는 가운데 살지만, 그 움직임 자체를 의식하는
+            일은 많지 않다. 대부분은 숫자가 바뀌는 순간만 확인하고 다시
+            일상으로 돌아간다.
+          </p>
+          <p>
+            ChronoLoop는 그 익숙한 방식을 조금 다르게 풀어낸다. 시간을 단순한
+            정보가 아니라 움직임으로 경험하게 하는 시계다. 더 정확한 시간을
+            보여주기보다, 시간을 잠깐 바라보게 만드는 물건에 가깝다.
+          </p>
+        </div>
+        <aside>
+          02 / ChronoLoop
+          <br />
+          Observation and movement
+          <br />
+          Seoul id archive
+        </aside>
+      </section>
     </article>
   );
 }
@@ -151,66 +226,8 @@ export default function ChronoloopPage() {
           className="spread spread-detail process-spread"
           aria-label="ChronoLoop 과정 펼침면"
         >
-          <ProcessPage
-            page="06"
-            columns={[
-              {
-                heading: "시간을 읽는 방식",
-                body: [
-                  "이 방식은 시간을 읽는 경험도 조금 다르게 만든다. 숫자를 빠르게 확인하는 대신, 원형 다이얼의 움직임을 통해 시간의 흐름을 인식하게 된다. 서로 다른 속도로 회전하는 작은 원들이 하나의 시점을 만들어 내는 방식이 이 시계의 핵심이다.",
-                ],
-              },
-              {
-                heading: "형태와 타이포그래피",
-                body: [
-                  "형태 역시 이러한 메커니즘을 중심으로 정리했다. 금속 바디는 장식적인 요소를 최소화했고, 다이얼 위 숫자에는 블랙레터 스타일의 타이포그래피를 적용했다. 전통적인 문자 형태와 기계적인 구조가 결합되면서 차분하고 고전적인 분위기를 만든다.",
-                ],
-              },
-            ]}
-            images={[
-              {
-                src: "/detail/chronoloop/2.webp",
-                alt: "흰 배경 위의 ChronoLoop",
-                caption: "Object view",
-              },
-              {
-                src: "/detail/chronoloop/3.webp",
-                alt: "선반 앞에 놓인 ChronoLoop",
-                caption: "Object in context",
-              },
-            ]}
-          />
-
-          <ProcessPage
-            page="07"
-            columns={[
-              {
-                heading: "관찰의 순간",
-                body: [
-                  "이 시계의 흥미로운 점은 시간을 바라보는 태도를 조금 바꾼다는 데 있다. 디지털 시계가 정확하고 즉각적인 정보를 제공한다면, ChronoLoop는 시간을 읽는 과정에 짧은 관찰의 순간을 만든다. 다이얼이 회전하고 숫자가 자리를 바꾸는 모습을 잠깐 바라보게 되는 것이다.",
-                ],
-              },
-              {
-                heading: "움직임으로서의 시간",
-                body: [
-                  "우리는 늘 시간이 흐르는 가운데 살지만, 그 움직임 자체를 의식하는 일은 많지 않다. 대부분은 숫자가 바뀌는 순간만 확인하고 다시 일상으로 돌아간다.",
-                  "ChronoLoop는 그 익숙한 방식을 조금 다르게 풀어낸다. 시간을 단순한 정보가 아니라 움직임으로 경험하게 하는 시계다. 더 정확한 시간을 보여주기보다, 시간을 잠깐 바라보게 만드는 물건에 가깝다.",
-                ],
-              },
-            ]}
-            images={[
-              {
-                src: "/detail/chronoloop/4.webp",
-                alt: "ChronoLoop 상단 구조의 세부 모습",
-                caption: "Detail view",
-              },
-              {
-                src: "/detail/chronoloop/5.webp",
-                alt: "이동식 구조물 옆의 ChronoLoop",
-                caption: "Use and scale",
-              },
-            ]}
-          />
+          <ProcessImagePage />
+          <ProcessTextPage />
         </section>
 
         <section
