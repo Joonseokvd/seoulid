@@ -5,16 +5,13 @@ function Product({ number }: { number: number }) {
   const visual = (
     <>
       <img
-        className="product-silhouette"
-        src={`/images/${number}o.png`}
-        alt=""
-        aria-hidden="true"
-      />
-      <img
         className="product-photo"
         src={`/images/${number}.png`}
         alt={`Seoul id product ${number}`}
       />
+      <span className="item-number" aria-hidden="true">
+        {number}
+      </span>
     </>
   );
 
