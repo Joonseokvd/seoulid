@@ -236,27 +236,17 @@ a.catalog-item {
   object-fit: contain;
 }
 
-.product-photo,
-.product-silhouette {
-  transition: opacity 220ms ease;
-}
-
 .product-photo {
-  opacity: 0;
-}
-
-.product-silhouette {
   opacity: 1;
 }
 
-.catalog-item:hover .product-photo,
-.catalog-item:focus-visible .product-photo {
-  opacity: 1;
-}
-
-.catalog-item:hover .product-silhouette,
-.catalog-item:focus-visible .product-silhouette {
-  opacity: 0;
+.item-number {
+  position: absolute;
+  left: 2%;
+  bottom: 0;
+  z-index: 2;
+  font-size: var(--small);
+  line-height: 1;
 }
 
 .catalog-item:focus-visible {
@@ -515,12 +505,5 @@ a.catalog-item {
   .folio-home {
     left: 50%;
     transform: translateX(-50%);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .product-photo,
-  .product-silhouette {
-    transition: none;
   }
 }
